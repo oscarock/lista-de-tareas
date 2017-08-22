@@ -14,10 +14,9 @@ require 'pathname'
 require 'pg'
 require 'active_record'
 require 'logger'
-
+require "make_todo"
 require 'sinatra'
 require "sinatra/reloader" if development?
-
 require 'erb'
 
 # Some helper constants for path-centric logic
