@@ -1,3 +1,1 @@
-get "/" do
-  p 'hola'
-end
+require "make_todo"
