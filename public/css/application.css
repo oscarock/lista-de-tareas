@@ -1,1 +1,10 @@
 /* Aca va tu CSS */
+body{
+  margin: 100px;
+}
+.cuadrado {
+  width: 100px;
+  height: 230px;
+  background: #7B7D7D;
+  margin: 45px;
+}
