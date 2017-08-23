@@ -1,0 +1,13 @@
+ <div class="col-sm-3 cuadrado">
+  <div class="row">
+    <div class="col-sm-6 text-left">
+      <i class="fa fa-paperclip" id="icon"></i>
+    </div>  
+    <div class="col-sm-6 text-right">
+      <a href="#" title="Completar Tarea"><i class="fa fa-check" id="icon"></i></a>
+      <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
+    </div>
+  </div>
+  <h3 class="text-center"><%= new_taks['title'] %></h3>
+  <p class="text-button">fecha creado: <%= new_taks["created_at"].split("T")[0] %></p>
+</div>

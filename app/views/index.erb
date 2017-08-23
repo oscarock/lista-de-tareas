@@ -3,31 +3,19 @@
   <br>
   <div class="row">
     <div class="col-sm-11">
-      <form class="form-inline">
+      <form action="/taks" method="post" class="form-inline" id="form-1">
         <div class="input-group col-sm-6 ml-auto">
-          <input type="text" class="form-control" placeholder="Nombre de la Tarea">
+          <input type="text" name="title" class="form-control" placeholder="Nombre de la Tarea" required>
         </div>
         <div class="input-group col-sm-3">
-          <button type="submit" class="btn btn-primary">Confirm identity</button>
+          <button type="submit" class="btn btn-primary">Guardar Tarea</button>
         </div>
       </form>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="taks-load">
     <% @taks.each do |tak| %>
-       <div class="col-sm-3 cuadrado">
-        <div class="row">
-          <div class="col-sm-6 text-left">
-            <i class="fa fa-paperclip" id="icon"></i>
-          </div>  
-          <div class="col-sm-6 text-right">
-            <a href="#" title="Completar Tarea"><i class="fa fa-check" id="icon"></i></a>
-            <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
-          </div>
-        </div>
-        <h3 class="text-center"><%= tak["title"] %></h3>
-        <p class="text-button">fecha creado: <%= tak["created_at"].split("T")[0] %></p>
-      </div>
+      <%= erb :"_taks", layout: false, locals: {new_taks: tak} %>
     <% end %>
   </div>
 </div>

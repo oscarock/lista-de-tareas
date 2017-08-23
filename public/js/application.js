@@ -4,4 +4,23 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  createTaks()
 });
+
+function createTaks(){
+	$('#form-1').on('submit',function(e){
+		e.preventDefault()
+		var form = this
+		$.ajax({
+			method: "POST",
+			url: form.action,
+			data: {
+				title: form.title.value
+			}
+		}).done(function(response){
+			$("#taks-load").append(response)
+		}).fail(function(response){
+			console.log("errores" + response)
+		})
+	})	
+}
