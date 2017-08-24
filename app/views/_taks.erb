@@ -1,4 +1,4 @@
-<div class="col-sm-3 cuadrado<% if new_taks['done'] == true %> tarea-completada <% else %> tarea-pendiente<% end %>">
+<div id="tarea_<%= new_taks['id'] %>" class="col-sm-3 cuadrado<% if new_taks['done'] == true %> tarea-completada <% else %> tarea-pendiente<% end %>">
   <div class="row">
     <div class="col-sm-6 text-left">
       <i class="fa fa-paperclip" id="icon"></i>

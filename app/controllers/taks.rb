@@ -17,5 +17,5 @@ get "/taks/complete/:id" do
 	taks['done'] = true
 	Tarea.update(taks['id'])
 	content_type :json
-	{status: "Tarea Completada"}.to_json
+	{taks: taks ,status: "Tarea Completada"}.to_json
 end

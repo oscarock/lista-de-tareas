@@ -35,7 +35,8 @@ function completeTaks(){
 			method: "GET",
 			url: link.href,
 		}).done(function(response){
-			$(".mensaje").fadeIn().html(response.status)
+			$("#tarea_" + response.taks.id).removeClass('tarea-pendiente').addClass('tarea-completada')
+			$("#taks_complete").hide()
 		})
 	})
 }
