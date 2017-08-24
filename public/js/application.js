@@ -5,6 +5,7 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   createTaks()
+  completeTaks()
 });
 
 function createTaks(){
@@ -23,4 +24,18 @@ function createTaks(){
 			console.log("errores" + response)
 		})
 	})	
+}
+
+function completeTaks(){
+	$('#taks-load').on('click', '#taks_complete',function(e){
+		e.preventDefault()
+		var link = this
+		console.log(link)
+		$.ajax({
+			method: "GET",
+			url: link.href,
+		}).done(function(response){
+			$(".mensaje").fadeIn().html(response.status)
+		})
+	})
 }

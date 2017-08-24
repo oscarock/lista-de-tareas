@@ -1,11 +1,15 @@
- <div class="col-sm-3 cuadrado">
+<div class="col-sm-3 cuadrado<% if new_taks['done'] == true %> tarea-completada <% else %> tarea-pendiente<% end %>">
   <div class="row">
     <div class="col-sm-6 text-left">
       <i class="fa fa-paperclip" id="icon"></i>
     </div>  
     <div class="col-sm-6 text-right">
-      <a href="#" title="Completar Tarea"><i class="fa fa-check" id="icon"></i></a>
-      <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
+      <% if new_taks['done'] == true %>
+        <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
+      <% else %>
+        <a href="/taks/complete/<%= new_taks['id'] %>" title="Completar Tarea" id="taks_complete"><i class="fa fa-check" id="icon"></i></a>
+        <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
+      <% end %>
     </div>
   </div>
   <h3 class="text-center"><%= new_taks['title'] %></h3>
