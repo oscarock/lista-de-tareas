@@ -21,7 +21,7 @@ function createTaks(){
 		}).done(function(response){
 			console.log(response)
 			$("#taks-load").append(response)
-			$(".mensaje").fadeIn().html('Tarea creada Correctamente.')
+			$(".mensaje").addClass('alert-success').fadeIn().html('Tarea creada Correctamente.')
 			$('#form-1')[0].reset()
 		}).fail(function(response){
 			console.log("errores" + response)
@@ -39,6 +39,7 @@ function completeTaks(){
 		}).done(function(response){
 			$("#tarea_" + response.taks.id).removeClass('tarea-pendiente').addClass('tarea-completada')
 			$(".id_taks_" + response.taks.id).hide()
+			$(".mensaje").addClass('alert-success').fadeIn().html('Tarea Terminada.')
 		})
 	})
 }

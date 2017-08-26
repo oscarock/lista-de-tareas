@@ -19,3 +19,10 @@ get "/taks/complete/:id" do
 	content_type :json
 	{taks: taks}.to_json
 end
+
+get "/taks/delete/:id" do
+	taks = Tarea.find(params[:id])
+	taks.destroy()
+	content_type :json
+	{status: "Tarea Eliminada"}.to_json
+end
