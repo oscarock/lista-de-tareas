@@ -6,6 +6,7 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   createTaks()
   completeTaks()
+  deleteTaks()
 });
 
 function createTaks(){
@@ -19,18 +20,15 @@ function createTaks(){
 				title: form.title.value
 			}
 		}).done(function(response){
-			console.log(response)
 			$("#taks-load").append(response)
 			$(".mensaje").addClass('alert-success').fadeIn().html('Tarea creada Correctamente.')
 			$('#form-1')[0].reset()
-		}).fail(function(response){
-			console.log("errores" + response)
 		})
 	})	
 }
 
 function completeTaks(){
-	$('#taks-load').on('click', '#taks_complete',function(e){
+	$('#taks-load').on('click', '.taks_complete',function(e){
 		e.preventDefault()
 		var link = this
 		$.ajax({
@@ -38,8 +36,22 @@ function completeTaks(){
 			url: link.href,
 		}).done(function(response){
 			$("#tarea_" + response.taks.id).removeClass('tarea-pendiente').addClass('tarea-completada')
-			$(".id_taks_" + response.taks.id).hide()
+			$("#id_taks_" + response.taks.id).hide()
 			$(".mensaje").addClass('alert-success').fadeIn().html('Tarea Terminada.')
+		})
+	})
+}
+
+function deleteTaks(){
+	$("#taks-load").on('click','.taks_delete',function(e){
+		e.preventDefault()
+		var link = this
+		$.ajax({
+			method: "GET",
+			url: link.href,
+		}).done(function(response){
+			$('#tarea_' + link.id).remove()
+			$(".mensaje").addClass('alert-danger').fadeIn().html('Tarea Eliminada.')
 		})
 	})
 }

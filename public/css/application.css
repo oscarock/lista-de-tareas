@@ -86,12 +86,8 @@ a:hover{
 	color: #868e96
 }
 
-#icon{
-	font-size:25px
-}
-
-#icon-delete{
-
+.icon{
+	font-size:25px !important
 }
 
 .text-button{
