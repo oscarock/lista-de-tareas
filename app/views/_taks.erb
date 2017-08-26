@@ -7,7 +7,7 @@
       <% if new_taks['done'] == true %>
         <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
       <% else %>
-        <a href="/taks/complete/<%= new_taks['id'] %>" title="Completar Tarea" id="taks_complete"><i class="fa fa-check" id="icon"></i></a>
+        <a href="/taks/complete/<%= new_taks['id'] %>" title="Completar Tarea" id="taks_complete"><i class="id_taks_<%= new_taks['id'] %> fa fa-check" id="icon"></i></a>
         <a href="#" title="Eliminar Tarea"><i class="fa fa-trash" id="icon"></i></a>
       <% end %>
     </div>

@@ -20,6 +20,7 @@ function createTaks(){
 			}
 		}).done(function(response){
 			$("#taks-load").append(response)
+			$('#form-1')[0].reset()
 		}).fail(function(response){
 			console.log("errores" + response)
 		})
@@ -30,13 +31,12 @@ function completeTaks(){
 	$('#taks-load').on('click', '#taks_complete',function(e){
 		e.preventDefault()
 		var link = this
-		console.log(link)
 		$.ajax({
 			method: "GET",
 			url: link.href,
 		}).done(function(response){
 			$("#tarea_" + response.taks.id).removeClass('tarea-pendiente').addClass('tarea-completada')
-			$("#taks_complete").hide()
+			$(".id_taks_" + response.taks.id).hide()
 		})
 	})
 }
