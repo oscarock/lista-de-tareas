@@ -19,7 +19,9 @@ function createTaks(){
 				title: form.title.value
 			}
 		}).done(function(response){
+			console.log(response)
 			$("#taks-load").append(response)
+			$(".mensaje").fadeIn().html('Tarea creada Correctamente.')
 			$('#form-1')[0].reset()
 		}).fail(function(response){
 			console.log("errores" + response)
